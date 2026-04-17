@@ -240,7 +240,7 @@ If you use RECOG in your work, please cite:
   author    = {Kumar, Sanjeev and Jyothi, Preethi},
   booktitle = {Findings of the Association for Computational Linguistics: ACL 2026},
   year      = {2026},
-  address   = {Vienna, Austria},
+  address   = {},
   publisher = {Association for Computational Linguistics},
 }
 ```
