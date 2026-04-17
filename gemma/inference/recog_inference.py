@@ -332,23 +332,5 @@ def main():
     print("=" * 50)
     
 if __name__ == "__main__":
-    # # Mocking the arguments for demonstration if run directly without bash script
-    # if len(sys.argv) == 1:
-    #     class MockArgs:
-    #         excel_path = 'NLLB_seed_new_data_train.xlsx' # Placeholder path
-    #         sheet_name = 'flores-devtest' 
-    #         output_file = 'combined_gating_predictions.xlsx'
-    #         gating_model_path = 'gemma_gating_model.pt' # Placeholder path
-    #         base_model = "google/gemma-7b"
-    #         lora_hi = "gemma-7b-lora-hi-bhojpuri"
-    #         lora_en = "gemma-7b-lora-en-bhojpuri"
-    #         src1_lang = "Hindi"
-    #         src2_lang = "English"
-    #         tgt_lang = "Bhojpuri"
-    #         gating_hidden_dim = 3072 # For Gemma 7B
-            
-    #     args = MockArgs()
-    #     print("Running with mocked arguments. Please provide actual arguments in production.")
     main()
     
-# CUDA_VISIBLE_DEVICES=0,2 python gemma_combined_gating_inference_last3.py --excel_path Angika_retranslate_1000_6_10.xlsx --sheet_name flores-devtest --output_file combined_gating_predictions_new_angika_12_12_25.xlsx --gating_model_path gemma_gating_model_last3_angika_test_12_12_25.pt --base_model google/gemma-7b --lora_hi gemma-7b-lora-hi-angika --lora_en gemma-7b-lora-en-angika --src1_lang Hindi --src2_lang English --tgt_lang Angika
