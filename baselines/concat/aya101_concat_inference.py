@@ -158,7 +158,7 @@ def main():
         )
 
     pd.DataFrame(results).to_csv(args.output_csv, index=False)
-    print(f"\n✅ Saved results to {args.output_csv}")
+    print(f"\n Saved results to {args.output_csv}")
 
 
 if __name__ == "__main__":
