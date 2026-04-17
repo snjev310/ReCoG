@@ -382,15 +382,7 @@ torch.save(gating_model.state_dict(), args.output_gating_model)
 tokenizer.save_pretrained(args.output_tokenizer_dir)
 print(" Done!")
         
-# CUDA_VISIBLE_DEVICES=0,2 python gemma_combined_gating_train_last3.py \
-#     --excel_path "NLLB_En_Bengali_Magahi_combined.xlsx" \
-#     --sheet_name "Sheet1" \
-#     --base_model "google/gemma-7b" \
-#     --lora_hi "gemma-7b-lora-ben_Magahi" \
-#     --lora_en "gemma-7b-lora-en-magahi" \
-#     --output_gating_model "gemma_gating_model_last3_en_ben_magahi.pt" \
-#     --output_tokenizer_dir "tokenizer_saved" \
-#     --tgt_col "Magahi" 
+
 
 
  
