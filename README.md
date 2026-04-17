@@ -18,7 +18,7 @@ This is the official repository for the paper:
 **RECOG** is a lightweight collaborative decoding framework for Extremely Low-Resource Language (ELRL) machine translation. It fuses the token-level output distributions of two independently fine-tuned expert models — one trained on a High-Resource Language (HRL, e.g., English) and another on a typologically related Mid-Resource Language (MRL, e.g., Hindi) — via a learned gating network, without retraining the expert models.
 
 <p align="center">
-  <img src="assets/recog_diagram.png" alt="RECOG Architecture" width="550"/>
+  <img src="recog.png" alt="RECOG Architecture" width="550"/>
 </p>
 
 At each decoding step, a lightweight MLP computes a scalar gate value `g_t` from the final 3 decoder layers of both experts, softly combining their output distributions:
@@ -99,9 +99,9 @@ pip install -r requirements.txt
 ## Data
 
 We use:
-- **Training**: [NLLB Seed Corpus](https://github.com/facebookresearch/flores) (~6,192 sentence pairs per language)
-- **Evaluation**: [FLORES-200 devtest split](https://github.com/facebookresearch/flores) (1,012 samples)
-- **Angika data**: from [Kumar et al., EACL 2026]
+- **Training**: [NLLB Seed Corpus](https://huggingface.co/datasets/openlanguagedata/oldi_seed) (~6,193 sentence pairs per language)
+- **Evaluation**: [FLORES-200] (1,012 samples)
+- **Angika data**: from [Kumar et al., EACL 2026](https://huggingface.co/datasets/snjev310/AngikaMT)
 
 Your data Excel file should contain columns for Source Language 1 (MRL), Source Language 2 (HRL = English), and the Target ELRL. See [`data/DATA.md`](data/DATA.md) for details.
 
@@ -152,7 +152,7 @@ python aya101/training/recog_train.py \
 CUDA_VISIBLE_DEVICES=0,1 python gemma/training/recog_train.py \
   --excel_path data/NLLB_seed_train.xlsx \
   --sheet_name deva-indian \
-  --base_model google/gemma-7b \
+  --base_model <path_to_gemma> \
   --lora_hi <path_to_mrl_lora_adapter> \
   --lora_en <path_to_hrl_lora_adapter> \
   --src1_col Hindi \
@@ -185,7 +185,7 @@ python aya101/inference/recog_inference.py \
 **Gemma / Qwen:**
 ```bash
 CUDA_VISIBLE_DEVICES=0,1 python gemma/inference/recog_inference.py \
-  --base_model google/gemma-7b \
+  --base_model <path_to_gemma> \
   --lora_hi <path_to_mrl_lora_adapter> \
   --lora_en <path_to_hrl_lora_adapter> \
   --gating_model_path gemma_gating_magahi.pt \
